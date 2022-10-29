@@ -1,0 +1,18 @@
+name: nothing
+
+on:
+  push:
+    branch:
+    - "release/*"
+    
+jobs:
+  my_first_workflow:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: echo branch name
+      run: echo "currnt branch name is ${{ github.ref_name }}"
+    - name: checkout the branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.ref_name }}
